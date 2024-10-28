@@ -20,7 +20,7 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-   # TODO: implement the function
+   # TODO: implement the function *DONE
     random_forest_model = RandomForestClassifier()
     random_forest_model.fit(X_train, y_train)
     return random_forest_model
@@ -62,8 +62,9 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    # TODO: implement the function
-    pass
+    # TODO: implement the function *DONE
+    preds = model.predict(X)
+    return preds
 
 def save_model(model, path):
     """ Serializes model to a file.
@@ -75,13 +76,17 @@ def save_model(model, path):
     path : str
         Path to save pickle file.
     """
-    # TODO: implement the function
-    pass
+    # TODO: implement the function *DONE
+    with open(path,'wb') as file:
+        pickle.dump(model,file)
+    
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
-    # TODO: implement the function
-    pass
+    # TODO: implement the function *DONE
+    with open(path, 'rb') as file: #the rb stands for read binary - to read the binary data from the file
+        model= pickle.load(file)
+    return model
 
 
 def performance_on_categorical_slice(
@@ -120,12 +125,22 @@ def performance_on_categorical_slice(
     fbeta : float
 
     """
-    # TODO: implement the function
+    # TODO: implement the function *DONE
+    # Slice the data
+    sliced_data = data[data[column_name] == slice_value] #Only slicing data from "column_name" column
+
     X_slice, y_slice, _, _ = process_data(
-        # your code here
+        sliced_data,
+        categorical_features = categorical_features,
+        label = label,
+        training = False,
+        encoder = encoder,
+        lb = lb,
+        model = model
+
         # for input data, use data in column given as "column_name", with the slice_value 
         # use training = False
     )
-    preds = # your code here to get prediction on X_slice using the inference function
+    preds = inference(model, X_slice) #Gets prediction on X_slice using the inference function
     precision, recall, fbeta = compute_model_metrics(y_slice, preds)
     return precision, recall, fbeta
