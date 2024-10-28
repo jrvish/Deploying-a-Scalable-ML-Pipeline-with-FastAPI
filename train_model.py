@@ -16,7 +16,9 @@ from ml.model import (
 project_path = "Your path here"
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
-data = None # your code here
+data = pd.read_csv(data_path) # your code here **DONE**
+
+print(data.head()) #to view the first few rows
 
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
