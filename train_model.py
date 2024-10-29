@@ -13,7 +13,7 @@ from ml.model import (
     save_model,
     train_model,
 )
-# TODO: load the census.csv data
+# TODO: load the census.csv data **DONE
 project_path = os.getcwd #returns full path to the directory
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
@@ -21,7 +21,7 @@ data = pd.read_csv(data_path) # Your code here - reads the CSV **DONE**
 
 print(data.head()) #to view the first few rows
 
-# TODO: split the provided data to have a train dataset and a test dataset
+# TODO: split the provided data to have a train dataset and a test dataset **DONE
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.2, random_state=42) #20 will be used for testing, %80 for training, random_state makes it reproducible
 
@@ -37,7 +37,7 @@ cat_features = [
     "native-country",
 ]
 
-# TODO: use the process_data function provided to process the data.
+# TODO: use the process_data function provided to process the data. **DONE
 X_train, y_train, encoder, lb = process_data(
     # your code here
     # use the train dataset 
@@ -79,7 +79,7 @@ preds = inference(model, X_test)# your code here
 p, r, fb = compute_model_metrics(y_test, preds)
 print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}")
 
-# TODO: compute the performance on model slices using the performance_on_categorical_slice function
+# TODO: compute the performance on model slices using the performance_on_categorical_slice function **DONE
 # iterate through the categorical features
 for col in cat_features:
     # iterate through the unique values in one categorical feature
