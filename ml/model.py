@@ -85,8 +85,7 @@ def load_model(path):
     """ Loads pickle file from `path` and returns it."""
     # TODO: implement the function *DONE
     with open(path, 'rb') as file: #the rb stands for read binary - to read the binary data from the file
-        model= pickle.load(file)
-    return model
+        return pickle.load(file)
 
 
 def performance_on_categorical_slice(
@@ -136,7 +135,6 @@ def performance_on_categorical_slice(
         training = False,
         encoder = encoder,
         lb = lb,
-        model = model
 
         # for input data, use data in column given as "column_name", with the slice_value 
         # use training = False
