@@ -23,11 +23,25 @@ def train_model(X_train, y_train):
    # TODO: implement the function - I ws to use Logistic Regression*DONE
     model = LogisticRegression()
 
-    ##Fitting the model to adjust parameters to minimize errors
-    model.fit(X_train, y_train)
+    # Define the hyperparameter grid
+    param_grid = {
+        'C': [0.01, 0.1, 1, 10, 100],  # Regularization strength
+        'penalty': ['l1', 'l2'],        # Regularization type
+        'solver': ['liblinear']         # Solver for logistic regression
+    }
 
-    #Returning the trained model
-    return model
+    # Set up the GridSearchCV
+    grid_search = GridSearchCV(estimator=model, param_grid=param_grid,
+                               scoring='f1', cv=5, verbose=1, n_jobs=-1)
+
+    # Fit the model with hyperparameter tuning
+    grid_search.fit(X_train, y_train)
+
+    # Get the best model
+    best_model = grid_search.best_estimator_
+
+    # Returning the best trained model to improve metric results
+    return best_model
 
 
 def compute_model_metrics(y, preds):
