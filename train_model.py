@@ -4,7 +4,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from ml.data import process_data
-from ucimlrepo import fetch_ucirepo
 from ml.model import (
     compute_model_metrics,
     inference,
