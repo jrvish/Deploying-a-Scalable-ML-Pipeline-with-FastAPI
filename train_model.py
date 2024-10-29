@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from ml.data import process_data
+from ucimlrepo import fetch_ucirepo
 from ml.model import (
     compute_model_metrics,
     inference,
@@ -12,17 +13,17 @@ from ml.model import (
     save_model,
     train_model,
 )
-# TODO: load the cencus.csv data
-project_path = "Your path here"
+# TODO: load the census.csv data
+project_path = os.getcwd #returns full path to the directory
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
-data = pd.read_csv(data_path) # your code here **DONE**
+data = pd.read_csv(data_path) # Your code here - reads the CSV **DONE**
 
 print(data.head()) #to view the first few rows
 
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = None, None# Your code here
+train, test = train_test_split(data, test_size=0.2, random_state=42) #20 will be used for testing, %80 for training, random_state makes it reproducible
 
 # DO NOT MODIFY
 cat_features = [
@@ -42,6 +43,10 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
+    train, #dataset
+    categorical_features=cat_features,
+    label="salary",
+    training=True
     )
 
 X_test, y_test, _, _ = process_data(
@@ -53,8 +58,8 @@ X_test, y_test, _, _ = process_data(
     lb=lb,
 )
 
-# TODO: use the train_model function to train the model on the training dataset
-model = None # your code here
+# TODO: use the train_model function to train the model on the training dataset **DONE
+model = train_model(X_train, y_train) # your code here 
 
 # save the model and the encoder
 model_path = os.path.join(project_path, "model", "model.pkl")
@@ -67,8 +72,8 @@ model = load_model(
     model_path
 ) 
 
-# TODO: use the inference function to run the model inferences on the test dataset.
-preds = None # your code here
+# TODO: use the inference function to run the model inferences on the test dataset. **DONE
+preds = inference(model, X_test)# your code here
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
