@@ -12,11 +12,17 @@ The intended use of this model was to analyze the Census Income Data from a 1994
 ## Training Data
 The data used came from a 1994 Census Income dataset.
 There are 14 features in the dataset that are either Integers or Categorical. 
+
 ## Evaluation Data
 The data was split between a trained dataset(80%) and a test dataset(20%).
+I used hyperparameters to improve metric results.
+
 ## Metrics
-_Please include the metrics used and your model's performance on those metrics._
+The metrics used were Precision, Recall, and F1.
+The results of these metrics when used on the test data were: Precision: 0.7523, Recall: 0.6130, and F1: 0.6756.
 
 ## Ethical Considerations
-The original data was split 
+There is a chance of there being biases within the date. Further research would need to be done before this data could be used for anything other than educational purposes. 
+
 ## Caveats and Recommendations
+There are possible biases within the data.
