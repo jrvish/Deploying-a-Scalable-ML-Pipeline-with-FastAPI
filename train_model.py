@@ -88,6 +88,14 @@ for col in cat_features:
         p, r, fb = performance_on_categorical_slice(
             # your code here
             # use test, col and slicevalue as part of the input
+            test,
+            col,
+            slicevalue,
+            cat_features,
+            "salary",
+            encoder,
+            lb,
+            model,
         )
         with open("slice_output.txt", "a") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
