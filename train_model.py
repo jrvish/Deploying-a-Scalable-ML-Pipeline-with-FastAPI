@@ -13,7 +13,7 @@ from ml.model import (
     train_model,
 )
 # TODO: load the census.csv data **DONE
-project_path = os.getcwd #returns full path to the directory
+project_path = os.getcwd() #returns full path to the directory
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path) # Your code here - reads the CSV **DONE**
