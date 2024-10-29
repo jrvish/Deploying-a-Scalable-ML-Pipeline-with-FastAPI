@@ -13,10 +13,10 @@ The intended use of this model was to analyze the Census Income Data from a 1994
 The data used came from a 1994 Census Income dataset.
 There are 14 features in the dataset that are either Integers or Categorical. 
 ## Evaluation Data
-
+The data was split between a trained dataset(80%) and a test dataset(20%).
 ## Metrics
 _Please include the metrics used and your model's performance on those metrics._
 
 ## Ethical Considerations
-
+The original data was split 
 ## Caveats and Recommendations

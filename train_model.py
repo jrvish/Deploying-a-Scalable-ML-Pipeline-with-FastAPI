@@ -22,7 +22,7 @@ print(data.head()) #to view the first few rows
 
 # TODO: split the provided data to have a train dataset and a test dataset **DONE
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.2, random_state=42) #20 will be used for testing, %80 for training, random_state makes it reproducible
+train, test = train_test_split(data, test_size=0.2, random_state=42) #20% will be used for testing, %80 for training, random_state makes it reproducible
 
 # DO NOT MODIFY
 cat_features = [
