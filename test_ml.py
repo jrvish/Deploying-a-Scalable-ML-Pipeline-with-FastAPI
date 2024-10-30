@@ -14,8 +14,6 @@ from ml.model import (
     train_model,
 )
 
-
-
 # TODO: implement the first test. Change the function name and input as needed **Done
 def test_compute_model_metrics():
     """ This first test is to ensure the compute_model_metrics function is returning the expected types"""
