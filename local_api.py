@@ -3,12 +3,14 @@ import json
 import requests
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
-r = None # Your code here
+url = "http://127.0.0.1:8000"  # The URL of your FastAPI application
+r = requests.get(url) # Your code here
 
 # TODO: print the status code
-# print()
+print("Status Code:", r.status_code)  # Print the status code
+
 # TODO: print the welcome message
-# print()
+print("Welcome Message:", r.json().get("message"))  # Print the welcome message
 
 
 
@@ -30,9 +32,11 @@ data = {
 }
 
 # TODO: send a POST using the data above
-r = None # Your code here
+post_url = "http://127.0.0.1:8000/data/"  # The URL of the predict endpoint
+r = requests.post(post_url, json=data)  # Your code here
 
 # TODO: print the status code
-# print()
+print("POST Status Code:", r.status_code)  # Print the status code
+
 # TODO: print the result
-# print()
+print("Prediction Result:", r.json())  # Print the result
